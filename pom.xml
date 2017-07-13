@@ -156,7 +156,7 @@
 	                <configuration>
                         <server>tomcatServer</server>
                         <update>true</update>
-                        <url>http://localhost:8080/manager/text</url>
+                        <url>http://tomcat_server:8080/manager/text</url>
                         <!--
                         <port>80</port>
 	                    <path>/</path>
