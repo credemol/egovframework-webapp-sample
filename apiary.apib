@@ -1,0 +1,95 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Mobile Seat Reservation API
+
+This is an API allowing Oracle employees to reserve a Mobil Seat.
+
+
+## Reservations Collection [/reservations]
+
+### Reserve a vacant seat [POST]
+
++ Request (application/json)
+
+        {
+            "employee": {
+                "_id": "1234567890",
+                "employeeNo": "02476",
+                "username": "younggki_kr"
+            },
+            "mobileSeat": {
+                "_id": "999000001",
+                "seatNo": "15215",
+                "location": "12F"
+            },
+            "from": "2017-08-15T09:00:00.000Z",
+            "to": "2017-08-15T10:00:00.000Z"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+    
+            Location: /reservations/1
+        
+
+## Reservation [/reservations/{reservation_id}]
+
+### View a Reservation Detail [GET]
+
++ Parameters
+    + reservation_id(string) - ID of the reservation
+    
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                "reservation_id": "1234567890",
+                "employee": {
+                    "_id": "1234567890",
+                    "employeeNo": "02476",
+                    "username": "younggki_kr"
+                },
+                "mobileSeat": {
+                    "_id": "999000001",
+                    "seatNo": "15215",
+                    "location": "12F"
+                },
+                "from": "2017-08-15T09:00:00.000Z",
+                "to": "2017-08-15T10:00:00.000Z"
+            }
+
+
+## Search [/reservations/search{?from,to}]
+
+### Search vacant seats20170 [GET]
+
++ Parameters
+
+    + from (string, optional) - the start datetime of the reservation
+    
+    + to (string, optional) - the end datetime of the reservation   
+
++ Response 200 (application/json)
+
+    + Body
+    
+            [
+                {
+                    "_id": "999000001",
+                    "seatNo": "15215",
+                    "location": "12F"
+                },
+                {
+                    "_id": "999000002",
+                    "seatNo": "15217",
+                    "location": "12F"
+                },
+                {
+                    "_id": "999000003",
+                    "seatNo": "15219",
+                    "location": "12F"
+                }
+            ]
