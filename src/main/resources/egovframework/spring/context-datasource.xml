@@ -19,11 +19,20 @@
     
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://129.158.66.11:3306/egov" />
+        <property name="username" value="egov"/>
+        <property name="password" value="JeonSunghye1!"/>
+    </bean>
+
+<!--
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://mysql_db:3306/com" />
         <property name="username" value="com"/>
         <property name="password" value="KimKyudong1!"/>
     </bean>
-    
+-->
+
     <!-- oracle
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
